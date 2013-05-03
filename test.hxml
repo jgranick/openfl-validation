@@ -1,0 +1,67 @@
+## Flash 9+
+-main TestMain
+-lib munit
+-lib hamcrest
+-lib pazu
+-D web
+
+-cp test
+-swf-version 11
+-swf build/as3_test.swf
+
+--next
+
+## JavaScript
+-main TestMain
+-lib munit
+-lib hamcrest
+-lib pazu
+-lib pazu-html5
+-lib format
+-D stage3d
+-D html5
+-D web
+-D html
+--remap flash:flash
+
+-cp test
+-js build/js_test.js
+
+--next
+
+## Neko
+-cmd cp ~/Development/Haxe/nme/ndll/Linux64/* build
+-main TestMain
+-lib munit
+-lib hamcrest
+-lib pazu
+-lib pazu-native
+-D stage3d
+--remap flash:flash
+--remap nme:flash
+
+-cp test
+-D HXCPP_M64=1
+-D linux
+-D desktop
+-neko build/neko_test.n
+
+--next
+
+## CPP
+-main TestMain
+-lib munit
+-lib hamcrest
+-lib pazu
+-lib pazu-native
+-D stage3d
+--remap flash:flash
+--remap nme:flash
+
+-cp test
+-D HXCPP_M64=1
+-D linux
+-D desktop
+-cpp build/cpp_test
+
+
