@@ -1,3 +1,8 @@
+## C++
+-cmd pazu test cpp
+
+--next
+
 ## Flash 9+
 -main TestMain
 -lib munit
@@ -12,56 +17,55 @@
 --next
 
 ## JavaScript
--main TestMain
--lib munit
--lib hamcrest
--lib pazu
--lib pazu-html5
--lib format
--D stage3d
--D html5
--D web
--D html
---remap flash:flash
+#-main TestMain
+#-lib munit
+#-lib hamcrest
+#-lib pazu
+#-lib pazu-html5
+#-lib format
+#-D html5
+#-D web
+#-D html
+#--remap flash:flash
 
--cp test
--js build/js_test.js
+#-cp test
+#-js build/js_test.js
+
+-cmd pazu build html5
 
 --next
 
 ## Neko
--cmd cp ~/Development/Haxe/nme/ndll/Linux64/* build
--main TestMain
--lib munit
--lib hamcrest
--lib pazu
--lib pazu-native
--D stage3d
---remap flash:flash
---remap nme:flash
+#-cmd cp ~/Development/Haxe/nme/ndll/Linux64/* build
+#-main TestMain
+#-lib munit
+#-lib hamcrest
+#-lib pazu
+#-lib pazu-native
+#--remap flash:flash
 
--cp test
--D HXCPP_M64=1
--D linux
--D desktop
--neko build/neko_test.n
+#-cp test
+#-D HXCPP_M64=1
+#-D linux
+#-D desktop
+#-neko build/neko_test.n
+-cmd pazu test neko
 
---next
+#--next
 
 ## CPP
--main TestMain
--lib munit
--lib hamcrest
--lib pazu
--lib pazu-native
--D stage3d
---remap flash:flash
---remap nme:flash
+#-main TestMain
+#-lib munit
+#-lib hamcrest
+#-lib pazu
+#-lib pazu-native
+#--remap flash:flash
 
--cp test
--D HXCPP_M64=1
--D linux
--D desktop
--cpp build/cpp_test
+#-cp test
+#-D HXCPP_M64=1
+#-D linux
+#-D desktop
+#-cpp build/cpp_test
 
+#-cmd pazu test cpp
 
