@@ -8,5 +8,8 @@
 	
 	<haxelib name="pazu" />
 	<haxelib name="munit" />
+	<haxelib name="format" />
+	
+	<template path="src/index.html" rename="index.html" if="html5" />
 	
 </project>
