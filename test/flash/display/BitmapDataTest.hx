@@ -14,7 +14,75 @@ import massive.munit.Assert;
 class BitmapDataTest {
 	
 	
-	@Test public function testBasics () {
+	@Test public function height () {
+		
+		var bitmapData = new BitmapData (1, 1);
+		
+		Assert.areEqual (1, bitmapData.height);
+		
+		bitmapData = new BitmapData (100, 100, true, 0xFFFF0000);
+		
+		Assert.areEqual (100.0, bitmapData.height);
+		
+	}
+	
+	
+	@Test public function rect () {
+		
+		var bitmapData = new BitmapData (1, 1);
+		
+		Assert.areEqual (0, bitmapData.rect.x);
+		Assert.areEqual (0, bitmapData.rect.y);
+		Assert.areEqual (1, bitmapData.rect.width);
+		Assert.areEqual (1, bitmapData.rect.height);
+		
+		bitmapData = new BitmapData (100, 100, true, 0xFFFF0000);
+		
+		Assert.areEqual (0, bitmapData.rect.x);
+		Assert.areEqual (0, bitmapData.rect.y);
+		Assert.areEqual (100.0, bitmapData.rect.width);
+		Assert.areEqual (100.0, bitmapData.rect.height);
+		
+	}
+	
+	
+	@Test public function transparent () {
+		
+		var bitmapData = new BitmapData (100, 100);
+		
+		Assert.isTrue (bitmapData.transparent);
+		Assert.areEqual (0xFFFFFF, bitmapData.getPixel (0, 0));
+		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
+		
+		bitmapData.setPixel32 (0, 0, 0x00FFFFFF);
+		
+		Assert.areEqual (0, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
+		
+		bitmapData = new BitmapData (100, 100, false);
+		
+		Assert.isFalse (bitmapData.transparent);
+		Assert.areEqual (0xFFFFFF, bitmapData.getPixel (0, 0));
+		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
+		
+		bitmapData.setPixel32 (0, 0, 0x00FFFFFF);
+		
+		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
+		
+		bitmapData = new BitmapData (100, 100, true);
+		bitmapData.setPixel32 (0, 0, 0x00FFFFFF);
+		
+		var pixels = bitmapData.getPixels (bitmapData.rect);
+		pixels.position = 0;
+		
+		bitmapData = new BitmapData (100, 100, false);
+		bitmapData.setPixels (bitmapData.rect, pixels);
+		
+		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
+		
+	}
+	
+	
+	/*@Test public function testBasics () {
 		
 		var bitmapData = new BitmapData (100, 100, true, 0xFFFF0000);
 		
@@ -246,17 +314,19 @@ class BitmapDataTest {
 	}
 	
 	
-	/*@Test public function testHitTest () {
+	//@Test
+	public function testHitTest () {
 		
 		var bitmapData = new BitmapData (100, 100);
 		
 		Assert.isFalse (bitmapData.hitTest (new Point (), 0, new Point (101, 101)));
 		Assert.isTrue (bitmapData.hitTest (new Point (), 0, new Point (100, 100)));
 		
-	}*/
+	}
 	
 	
-	/*@Test public function testMerge () {
+	//@Test
+	public function testMerge () {
 		
 		#if neko
 		
@@ -288,7 +358,7 @@ class BitmapDataTest {
 		
 		#end
 		
-	}*/
+	}
 	
 	
 	@Test public function testScroll () {
@@ -309,7 +379,7 @@ class BitmapDataTest {
 		
 		Assert.areEqual (StringTools.hex (0xFFFFFFFF, 8), StringTools.hex (pixel, 8));
 		
-	}
+	}*/
 	
 	
 }
