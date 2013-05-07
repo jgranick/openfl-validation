@@ -8,6 +8,7 @@ import flash.filters.GlowFilter;
 import flash.geom.ColorTransform;
 import flash.geom.Point;
 import flash.geom.Rectangle;
+import flash.utils.ByteArray;
 import massive.munit.Assert;
 
 
@@ -51,7 +52,7 @@ class BitmapDataTest {
 		var bitmapData = new BitmapData (100, 100);
 		
 		Assert.isTrue (bitmapData.transparent);
-		Assert.areEqual (0xFFFFFF, bitmapData.getPixel (0, 0));
+		Assert.areEqual (hex (0xFFFFFF), hex (bitmapData.getPixel (0, 0)));
 		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
 		
 		bitmapData.setPixel32 (0, 0, 0x00FFFFFF);
@@ -61,7 +62,7 @@ class BitmapDataTest {
 		bitmapData = new BitmapData (100, 100, false);
 		
 		Assert.isFalse (bitmapData.transparent);
-		Assert.areEqual (0xFFFFFF, bitmapData.getPixel (0, 0));
+		Assert.areEqual (hex (0xFFFFFF), hex (bitmapData.getPixel (0, 0)));
 		Assert.areEqual (0xFF, bitmapData.getPixel32 (0, 0) >> 24 & 0xFF);
 		
 		bitmapData.setPixel32 (0, 0, 0x00FFFFFF);
@@ -171,7 +172,8 @@ class BitmapDataTest {
 	
 	
 	#if !flash @Ignore #end @Test public function compare () {
-	#if flash
+		
+		#if flash
 		
 		var bitmapData = new BitmapData (50, 50, true, 0xFFFF8800);
 		var bitmapData2 = new BitmapData (50, 50, true, 0xCCCC6600);
@@ -206,7 +208,8 @@ class BitmapDataTest {
 		
 		Assert.areEqual (-4, bitmapData.compare (bitmapData2));
 		
-	#end
+		#end
+		
 	}
 	
 	
@@ -264,6 +267,83 @@ class BitmapDataTest {
 	}
 	
 	
+	@Ignore @Test public function copyPixelsToByteArray () {
+		
+		#if flash
+		
+		var bitmapData = new BitmapData (100, 100);
+		var bytes = new ByteArray ();
+		
+		bitmapData.copyPixelsToByteArray (new Rectangle (0, 0, 20, 20), bytes);
+		
+		Assert.areEqual (20 * 20 * 4, bytes.length);
+		
+		#end
+		
+	}
+	
+	
+	@Test public function dispose () {
+		
+		var bitmapData = new BitmapData (100, 100);
+		bitmapData.dispose ();
+		
+		#if flash
+		
+		try {
+			bitmapData.width;
+		} catch (e:Dynamic) {
+			Assert.isTrue (true);
+		}
+		
+		#elseif neko
+		
+		Assert.areEqual (null, bitmapData.width);
+		Assert.areEqual (null, bitmapData.height);
+		
+		#else
+		
+		Assert.areEqual (0, bitmapData.width);
+		Assert.areEqual (0, bitmapData.height);
+		
+		#end
+		
+	}
+	
+	
+	@Test public function draw () {
+		
+		var bitmapData = new BitmapData (100, 100);
+		var bitmapData2 = new Bitmap (new BitmapData (100, 100, true, 0xFF0000FF));
+		
+		bitmapData.draw (bitmapData2);
+		
+		//Assert.areEqual (hex (0xFF0000FF), hex (bitmapData.getPixel32 (0, 0)));
+		
+		var sprite = new Sprite ();
+		sprite.graphics.beginFill (0xFFFF0000);
+		sprite.graphics.drawRect (0, 0, 100, 100);
+		
+		bitmapData.draw (sprite);
+		
+		//Assert.areEqual (hex (0xFFFF0000), hex (bitmapData.getPixel32 (0, 0)));
+		
+		var sprite2 = new Sprite ();
+		sprite2.graphics.beginFill (0x00FF00);
+		sprite2.graphics.drawRect (0, 0, 100, 100);
+		
+		sprite.x = 50;
+		sprite.y = 50;
+		sprite2.addChild (sprite);
+		
+		bitmapData.draw (sprite2);
+		
+		//Assert.areEqual (hex (0xFF00FF00), hex (bitmapData.getPixel32 (0, 0)));
+		Assert.areEqual (hex (0xFFFF0000), hex (bitmapData.getPixel32 (50, 50)));
+		
+	}
+	
+	
 	private function hex (value:Int):String {
 		
 		return StringTools.hex (value, 8);
@@ -271,131 +351,7 @@ class BitmapDataTest {
 	}
 	
 	
-	/*@Test public function testBasics () {
-		
-		var bitmapData = new BitmapData (100, 100, true, 0xFFFF0000);
-		
-		Assert.areEqual (100, bitmapData.width);
-		Assert.areEqual (100, bitmapData.height);
-		
-		Assert.areEqual (0.0, bitmapData.rect.x);
-		Assert.areEqual (0.0, bitmapData.rect.y);
-		Assert.areEqual (100.0, bitmapData.rect.width);
-		Assert.areEqual (100.0, bitmapData.rect.height);
-		
-		var pixel = bitmapData.getPixel (1, 1);
-		
-		Assert.areEqual (0xFF0000, pixel);
-		
-		pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (StringTools.hex (0xFFFF0000, 8), StringTools.hex (pixel, 8));
-		var color = 0x0000FF00;
-		
-		for (setX in 0...100) {
-			
-			for (setY in 0...100) {
-				
-				bitmapData.setPixel32 (setX, setY, color);
-				
-			}
-			
-		}
-		
-		pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.isTrue ((StringTools.hex (pixel, 8) == StringTools.hex (0x0000FF00, 8)) || pixel == 0);
-		
-		bitmapData.fillRect (bitmapData.rect, color);
-		
-		pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.isTrue ((StringTools.hex (0x0000FF00, 8) == StringTools.hex (pixel, 8)) || pixel == 0);
-		
-	}
-	
-	
-	@Test public function testFilter () {
-		
-		var bitmapData = new BitmapData (100, 100);
-		var color = 0xFFFF0000;
-		var filter = new GlowFilter (color, 1, 10, 10, 100);
-		
-		var sourceBitmapData = new BitmapData (100, 100, true, color);
-		bitmapData.applyFilter (sourceBitmapData, sourceBitmapData.rect, new Point (), filter);
-		
-		var pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (StringTools.hex (0xFFFF0000, 8), StringTools.hex (pixel, 8));
-		
-		var filterRect = untyped bitmapData.generateFilterRect (bitmapData.rect, filter);
-		
-		Assert.isTrue (filterRect.width > 100 && filterRect.width <= 115);
-		Assert.isTrue (filterRect.height > 100 && filterRect.height <= 115);
-		
-	}
-	
-	
-	@Test public function testClone () {
-		
-		var color = 0xFFFF0000;
-		var bitmapData = new BitmapData (100, 100, true, color);
-		var cloneBitmapData = bitmapData.clone ();
-		
-		Assert.areNotSame (cloneBitmapData, bitmapData);
-		
-		var pixel = bitmapData.getPixel32 (1, 1);
-		var clonePixel = cloneBitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (pixel, clonePixel);
-		
-	}
-	
-	
-	@Test public function testColorTransform () {
-		
-		var bitmapData = new BitmapData (100, 100);
-		bitmapData.colorTransform (bitmapData.rect, new ColorTransform (0, 0, 0, 1, 0xFF, 0, 0, 0));
-		
-		var pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (StringTools.hex (0xFFFF0000, 8), StringTools.hex (pixel, 8));
-		
-	}
-	
-	
-	@Test public function testCopyChannel () {
-		
-		var color = 0xFF000000;
-		var color2 = 0xFFFF0000;
-		
-		var bitmapData = new BitmapData (100, 100, true, color);
-		var sourceBitmapData = new BitmapData (100, 100, true, color2);
-		
-		bitmapData.copyChannel (sourceBitmapData, sourceBitmapData.rect, new Point (), BitmapDataChannel.RED, BitmapDataChannel.RED);
-		
-		var pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (StringTools.hex (0xFFFF0000, 8), StringTools.hex (pixel, 8));
-		
-	}
-	
-	
-	@Test public function testCopyPixels () {
-		
-		var color = 0xFFFF0000;
-		var bitmapData = new BitmapData (100, 100);
-		var sourceBitmapData = new BitmapData (100, 100, true, color);
-		
-		bitmapData.copyPixels (sourceBitmapData, sourceBitmapData.rect, new Point ());
-		
-		var pixel = bitmapData.getPixel32 (1, 1);
-		
-		Assert.areEqual (StringTools.hex (0xFFFF0000, 8), StringTools.hex (pixel, 8));
-		
-	}
-	
-	
+	/*
 	@Test public function testDispose () {
 		
 		var bitmapData = new BitmapData (100, 100);

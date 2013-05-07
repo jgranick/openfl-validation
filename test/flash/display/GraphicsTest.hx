@@ -12,6 +12,13 @@ import massive.munit.Assert;
 class GraphicsTest {
 	
 	
+	private function hex (value:Int):String {
+		
+		return StringTools.hex (value, 8);
+		
+	}
+	
+	
 	@Test public function testGeometry () {
 		
 		var sprite = new Sprite ();
@@ -47,7 +54,7 @@ class GraphicsTest {
 		
 		var pixel = test.getPixel (1, 1);
 		
-		Assert.areEqual (0xFF0000, pixel);
+		Assert.areEqual (hex (0xFF0000), hex (pixel));
 		
 	}
 	
@@ -64,7 +71,7 @@ class GraphicsTest {
 		
 		var pixel = test.getPixel (1, 1);
 		
-		Assert.areEqual (0xFF0000, pixel);
+		Assert.areEqual (hex (0xFF0000), hex (pixel));
 		
 	}
 	
@@ -113,8 +120,8 @@ class GraphicsTest {
 		var pixel = test.getPixel (1, 1);
 		var pixel2 = test.getPixel (50, 50);
 		
-		Assert.areEqual (0xFFFFFF, pixel);
-		Assert.areEqual (0xFF0000, pixel2);
+		Assert.areEqual (hex (0xFFFFFF), hex (pixel));
+		Assert.areEqual (hex (0xFF0000), hex (pixel2));
 		
 	}
 	
@@ -133,9 +140,9 @@ class GraphicsTest {
 		var pixel2 = test.getPixel (50, 50);
 		var pixel3 = test.getPixel (50, 20);
 		
-		Assert.areEqual (0xFFFFFF, pixel);
-		Assert.areEqual (0xFF0000, pixel2);
-		Assert.areEqual (0xFFFFFF, pixel3);
+		Assert.areEqual (hex (0xFFFFFF), hex (pixel));
+		Assert.areEqual (hex (0xFF0000), hex (pixel2));
+		Assert.areEqual (hex (0xFFFFFF), hex (pixel3));
 		
 	}
 	
