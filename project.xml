@@ -8,6 +8,8 @@
 	
 	<haxelib name="pazu" />
 	<haxelib name="munit" />
+	<haxelib name="mlib" />
+	<haxelib name="hamcrest" />
 	<haxelib name="format" />
 	
 	<template path="src/index.html" rename="index.html" if="html5" />
