@@ -88,11 +88,11 @@ class PointTest {
 	}
 	
 	
-	@Ignore @Test public function toString () {
+	/*@Ignore @Test public function toString () {
 		
 		
 		
-	}
+	}*/
 	
 	
 	@Ignore @Test public function distance () {

@@ -18,11 +18,11 @@ class URLVariablesTest {
 	}
 	
 	
-	@Ignore @Test public function toString () {
+	/*@Ignore @Test public function toString () {
 		
 		
 		
-	}
+	}*/
 	
 	
 }

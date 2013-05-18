@@ -109,7 +109,9 @@ class BitmapDataTest {
 	}
 	
 	
-	@Test public function applyFilter () {
+	#if html5 @Ignore #end @Test public function applyFilter () {
+		
+		#if !html5
 		
 		//TODO: Test more filters
 		
@@ -125,6 +127,8 @@ class BitmapDataTest {
 		
 		Assert.isTrue (filterRect.width > 100 && filterRect.width <= 115);
 		Assert.isTrue (filterRect.height > 100 && filterRect.height <= 115);
+		
+		#end
 		
 	}
 	
