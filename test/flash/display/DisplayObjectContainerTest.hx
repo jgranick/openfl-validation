@@ -21,9 +21,31 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function numChildren () {
+	@Test public function numChildren () {
 		
+		var sprites = [];
 		
+		for (i in 0...4) {
+			
+			sprites.push (new Sprite ());
+			
+		}
+		
+		Assert.areEqual (0, sprites[0].numChildren);
+		
+		for (i in 1...4) {
+			
+			sprites[0].addChild (sprites[i]);
+			Assert.areEqual (i, sprites[0].numChildren);
+			
+		}
+		
+		for (i in 1...4) {
+			
+			sprites[0].removeChild (sprites[i]);
+			Assert.areEqual (3 - i, sprites[0].numChildren);
+			
+		}
 		
 	}
 	
@@ -35,23 +57,77 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function new () {
+	@Ignore @Test public function textSnapshot () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function addChild () {
+	/*@Ignore @Test public function new () {
 		
 		
+		
+	}*/
+	
+	
+	@Test public function addChild () {
+		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		
+		sprite.addChild (sprite2);
+		
+		Assert.areEqual (1, sprite.numChildren);
+		Assert.areSame (sprite2, sprite.getChildAt (0));
+		
+		var sprite3 = new Sprite ();
+		
+		sprite.addChild (sprite3);
+		
+		Assert.areEqual (2, sprite.numChildren);
+		Assert.areEqual (0, sprite.getChildIndex (sprite2));
+		Assert.areEqual (1, sprite.getChildIndex (sprite3));
+		
+		sprite.addChild (sprite2);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite3));
+		Assert.areEqual (1, sprite.getChildIndex (sprite2));
+		
+		sprite2.addChild (sprite3);
+		
+		Assert.areSame (sprite3.parent, sprite2);
 		
 	}
 	
 	
-	@Ignore @Test public function addChildAt () {
+	@Test public function addChildAt () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
 		
+		sprite.addChildAt (sprite2, 0);
+		
+		Assert.areEqual (1, sprite.numChildren);
+		Assert.areSame (sprite2, sprite.getChildAt (0));
+		
+		var sprite3 = new Sprite ();
+		
+		sprite.addChildAt (sprite3, 1);
+		
+		Assert.areEqual (2, sprite.numChildren);
+		Assert.areEqual (0, sprite.getChildIndex (sprite2));
+		Assert.areEqual (1, sprite.getChildIndex (sprite3));
+		
+		sprite.addChildAt (sprite2, 0);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite2));
+		Assert.areEqual (1, sprite.getChildIndex (sprite3));
+		
+		sprite.addChildAt (sprite2, 1);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite3));
+		Assert.areEqual (1, sprite.getChildIndex (sprite2));
 		
 	}
 	
@@ -63,30 +139,100 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function contains () {
+	@Test public function contains () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
 		
+		Assert.isFalse (sprite.contains (sprite2));
+		
+		sprite.addChild (sprite2);
+		
+		Assert.isTrue (sprite.contains (sprite2));
+		
+		var sprite3 = new Sprite ();
+		
+		sprite.addChild (sprite3);
+		
+		Assert.isTrue (sprite.contains (sprite3));
+		
+		sprite.removeChild (sprite3);
+		sprite.removeChild (sprite2);
+		
+		Assert.isFalse (sprite.contains (sprite2));
+		Assert.isFalse (sprite.contains (sprite3));
 		
 	}
 	
 	
-	@Ignore @Test public function getChildAt () {
+	@Test public function getChildAt () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
 		
+		sprite.addChild (sprite2);
+		
+		Assert.areSame (sprite2, sprite.getChildAt (0));
+		
+		var sprite3 = new Sprite ();
+		sprite.addChild (sprite3);
+		
+		Assert.areSame (sprite3, sprite.getChildAt (1));
+		
+		sprite2.addChild (sprite3);
+		
+		Assert.areSame (sprite3, sprite2.getChildAt (0));
+		
+		try {
+			
+			sprite.getChildAt (2);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
 		
 	}
 	
 	
-	@Ignore @Test public function getChildByName () {
+	@Test public function getChildByName () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
 		
+		sprite2.name = "a";
+		sprite3.name = "a";
+		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		
+		Assert.isNull (sprite.getChildByName ("b"));
+		Assert.areSame (sprite2, sprite.getChildByName ("a"));
+		
+		sprite3.name = "b";
+		
+		Assert.areSame (sprite3, sprite.getChildByName ("b"));
 		
 	}
 	
 	
-	@Ignore @Test public function getChildIndex () {
+	@Test public function getChildIndex () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
 		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite2));
+		Assert.areEqual (1, sprite.getChildIndex (sprite3));
+		
+		try {
+			
+			sprite2.getChildIndex (sprite3);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
 		
 	}
 	
@@ -98,91 +244,128 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function removeChild () {
+	@Test public function removeChild () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
 		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		sprite.removeChild (sprite2);
+		sprite.removeChild (sprite3);
 		
-	}
-	
-	
-	@Ignore @Test public function removeChildAt () {
+		Assert.areEqual (0, sprite.numChildren);
 		
-		
-		
-	}
-	
-	
-	@Ignore @Test public function setChildIndex () {
-		
-		
-		
-	}
-	
-	
-	@Ignore @Test public function swapChildren () {
-		
-		
+		try {
+			
+			sprite.removeChild (sprite2);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
 		
 	}
 	
 	
-	@Ignore @Test public function swapChildrenAt () {
+	@Test public function removeChildAt () {
 		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
 		
-		
-	}
-	
-	
-	/*@Ignore @Test public function testChildren () {
-		
-		var sprite:DisplayObjectContainer = new Sprite ();
-		
-		var bitmap:DisplayObject = new Bitmap (new BitmapData (100, 100));
-		bitmap.name = "hello";
-		
-		sprite.addChild (bitmap);
-		
-		Assert.areEqual (1, sprite.numChildren);
-		Assert.isTrue (sprite.contains (bitmap));
-		
-		Assert.areSame (bitmap, sprite.getChildAt (0));
-		Assert.areSame (bitmap, sprite.getChildByName ("hello"));
-		Assert.areEqual (0, sprite.getChildIndex (bitmap));
-		
-		// Native getObjectsUnderPoint() method doesn't work unless the object is renderable
-		
-		Lib.current.stage.addChild (sprite);
-		var objects = sprite.getObjectsUnderPoint (new Point (1, 1));
-		Assert.areEqual (1, objects.length);
-		Assert.areSame (bitmap, objects[0]);
-		Lib.current.stage.removeChild (sprite);
-		
-		var bitmap2 = new Bitmap (new BitmapData (100, 100));
-		
-		sprite.addChild (bitmap2);
-		sprite.setChildIndex (bitmap2, 0);
-		
-		Assert.areEqual (0, sprite.getChildIndex (bitmap2));
-		
-		sprite.swapChildren (bitmap, bitmap2);
-		
-		Assert.areEqual (1, sprite.getChildIndex (bitmap2));
-		
-		sprite.swapChildrenAt (0, 1);
-		
-		Assert.areEqual (0, sprite.getChildIndex (bitmap2));
-		
-		sprite.removeChild (bitmap);
-		
-		Assert.areEqual (1, sprite.numChildren);
-		Assert.isFalse (sprite.contains (bitmap));
-		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		sprite.removeChildAt (0);
 		sprite.removeChildAt (0);
 		
 		Assert.areEqual (0, sprite.numChildren);
-		Assert.isFalse (sprite.contains (bitmap2));
 		
-	}*/
+		try {
+			
+			sprite.removeChildAt (0);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
+		
+	}
 	
-
+	
+	@Test public function setChildIndex () {
+		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
+		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		
+		sprite.setChildIndex (sprite3, 0);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite3));
+		
+		sprite.setChildIndex (sprite2, 0);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite2));
+		
+		try {
+			
+			sprite.removeChild (sprite2);
+			sprite.setChildIndex (sprite2, 0);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
+		
+	}
+	
+	
+	@Test public function swapChildren () {
+		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
+		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		
+		sprite.swapChildren (sprite2, sprite3);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite3));
+		Assert.areEqual (1, sprite.getChildIndex (sprite2));
+		
+		try {
+			
+			sprite.removeChild (sprite2);
+			sprite.swapChildren (sprite2, sprite3);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
+		
+	}
+	
+	
+	@Test public function swapChildrenAt () {
+		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		var sprite3 = new Sprite ();
+		
+		sprite.addChild (sprite2);
+		sprite.addChild (sprite3);
+		
+		sprite.swapChildrenAt (0, 1);
+		
+		Assert.areEqual (0, sprite.getChildIndex (sprite3));
+		Assert.areEqual (1, sprite.getChildIndex (sprite2));
+		
+		try {
+			
+			sprite.removeChild (sprite2);
+			sprite.swapChildrenAt (0, 1);
+			Assert.fail ("");
+			
+		} catch (e:Dynamic) {}
+		
+	}
+	
+	
 }
