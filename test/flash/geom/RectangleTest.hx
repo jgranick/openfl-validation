@@ -312,44 +312,101 @@ class RectangleTest {
 	}
 	
 	
-	@Ignore @Test public function equals () {
+	@Test public function equals () {
 		
+		var rect = new Rectangle (0, 0, 100, 100);
 		
-		
-	}
-	
-	
-	@Ignore @Test public function inflate () {
-		
-		
+		Assert.isTrue (rect.equals (new Rectangle (0, 0, 100, 100)));
+		Assert.isTrue (rect.equals (rect.clone ()));
+		Assert.isFalse (rect.equals (new Rectangle (1, 0, 100, 100)));
+		Assert.isFalse (rect.equals (new Rectangle (0, 0, 100, 101)));
 		
 	}
 	
 	
-	@Ignore @Test public function inflatePoint () {
+	@Test public function inflate () {
 		
+		var rect = new Rectangle (0, 0, 100, 100);
+		rect.inflate (1, 0);
 		
+		Assert.areEqual (102, rect.width);
+		Assert.areEqual (100, rect.height);
+		Assert.areEqual (-1, rect.x);
+		Assert.areEqual (0, rect.y);
+		
+		rect = new Rectangle (-100, -100, 100, 100);
+		rect.inflate (2, 2);
+		
+		Assert.areEqual (104, rect.width);
+		Assert.areEqual (2, rect.right);
+		Assert.areEqual (-102, rect.x);
+		Assert.areEqual (-102, rect.y);
+		
+		rect.inflate (-2, -2);
+		
+		Assert.areEqual (100, rect.width);
+		Assert.areEqual (-100, rect.x);
 		
 	}
 	
 	
-	@Ignore @Test public function intersection () {
+	@Test public function inflatePoint () {
 		
+		var rect = new Rectangle (0, 0, 100, 100);
+		rect.inflatePoint (new Point (1, 0));
 		
+		Assert.areEqual (102, rect.width);
+		Assert.areEqual (100, rect.height);
+		Assert.areEqual (-1, rect.x);
+		Assert.areEqual (0, rect.y);
+		
+		rect = new Rectangle (-100, -100, 100, 100);
+		rect.inflatePoint (new Point (2, 2));
+		
+		Assert.areEqual (104, rect.width);
+		Assert.areEqual (2, rect.right);
+		Assert.areEqual (-102, rect.x);
+		Assert.areEqual (-102, rect.y);
+		
+		rect.inflatePoint (new Point (-2, -2));
+		
+		Assert.areEqual (100, rect.width);
+		Assert.areEqual (-100, rect.x);
 		
 	}
 	
 	
-	@Ignore @Test public function intersects () {
+	@Test public function intersection () {
 		
+		var rect = new Rectangle (0, 0, 100, 100);
 		
+		Assert.isTrue (rect.intersection (new Rectangle ()).equals (new Rectangle ()));
+		Assert.isTrue (rect.intersection (new Rectangle (50, 50, 100, 100)).equals (new Rectangle (50, 50, 50, 50)));
+		Assert.isTrue (rect.intersection (new Rectangle (-50, -50, 100, 100)).equals (new Rectangle (0, 0, 50, 50)));
+		Assert.isTrue (rect.intersection (new Rectangle (-100, -100, 100, 100)).equals (new Rectangle ()));
 		
 	}
 	
 	
-	@Ignore @Test public function isEmpty () {
+	@Test public function intersects () {
 		
+		var rect = new Rectangle (0, 0, 100, 100);
 		
+		Assert.isFalse (rect.intersects (new Rectangle ()));
+		Assert.isTrue (rect.intersects (new Rectangle (50, 50, 100, 100)));
+		Assert.isTrue (rect.intersects (new Rectangle (-50, -50, 100, 100)));
+		Assert.isFalse (rect.intersects (new Rectangle (-100, -100, 100, 100)));
+		
+	}
+	
+	
+	@Test public function isEmpty () {
+		
+		Assert.isTrue (new Rectangle ().isEmpty ());
+		Assert.isTrue (new Rectangle (100, 100, -1, -1).isEmpty ());
+		Assert.isTrue (new Rectangle (0, 0, -1, -1).isEmpty ());
+		Assert.isTrue (new Rectangle (0, 0, 1, 0).isEmpty ());
+		Assert.isFalse (new Rectangle (0, 0, 1, 1).isEmpty ());
 		
 	}
 	
