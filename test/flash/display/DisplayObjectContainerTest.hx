@@ -237,9 +237,24 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function getObjectsUnderPoint () {
+	@Test public function getObjectsUnderPoint () {
 		
+		var sprite = new Sprite ();
 		
+		var sprite2 = new Sprite ();
+		sprite2.graphics.beginFill (0xFF0000);
+		sprite2.graphics.drawRect (0, 0, 100, 100);
+		sprite.addChild (sprite2);
+		
+		//TODO: Should return correct value when Sprite is not on stage
+		Lib.current.stage.addChild (sprite);
+		
+		Assert.areEqual (sprite2, sprite.getObjectsUnderPoint (new Point (10, 10))[0]);
+		Assert.areEqual (0, sprite.getObjectsUnderPoint (new Point ()).length);
+		
+		sprite.removeChild (sprite2);
+		
+		Assert.areEqual (0, sprite.getObjectsUnderPoint (new Point ()).length);
 		
 	}
 	
