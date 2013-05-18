@@ -2,15 +2,16 @@
 package flash.display;
 
 
-import flash.display.InterpolationMethod;
-
-
 class InterpolationMethodTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (InterpolationMethod.RGB) {
+			
+			case InterpolationMethod.LINEAR_RGB, InterpolationMethod.RGB:
+			
+		}
 		
 	}
 	

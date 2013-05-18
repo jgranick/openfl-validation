@@ -4,9 +4,13 @@ package flash.display;
 class StageQualityTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (StageQuality.MEDIUM) {
+			
+			case StageQuality.BEST, StageQuality.HIGH, StageQuality.LOW, StageQuality.MEDIUM:
+			
+		}
 		
 	}
 	

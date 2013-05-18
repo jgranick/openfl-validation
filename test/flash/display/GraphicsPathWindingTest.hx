@@ -2,15 +2,16 @@
 package flash.display;
 
 
-import flash.display.GraphicsPathWinding;
-
-
 class GraphicsPathWindingTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (GraphicsPathWinding.NON_ZERO) {
+			
+			case GraphicsPathWinding.EVEN_ODD, GraphicsPathWinding.NON_ZERO:
+			
+		}
 		
 	}
 	

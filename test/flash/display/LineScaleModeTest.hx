@@ -2,15 +2,21 @@
 package flash.display;
 
 
-import flash.display.LineScaleMode;
-
-
 class LineScaleModeTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (LineScaleMode.VERTICAL) {
+			
+			case LineScaleMode.HORIZONTAL, LineScaleMode.NONE, LineScaleMode.NORMAL, LineScaleMode.VERTICAL:
+			
+			//TODO: Add fake LineScaleMode.OPENGL value for Flash?
+			#if (cpp || neko)
+			case LineScaleMode.OPENGL:
+			#end
+			
+		}
 		
 	}
 	

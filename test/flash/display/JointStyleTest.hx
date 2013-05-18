@@ -2,15 +2,16 @@
 package flash.display;
 
 
-import flash.display.JointStyle;
-
-
 class JointStyleTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (JointStyle.ROUND) {
+			
+			case JointStyle.BEVEL, JointStyle.MITER, JointStyle.ROUND:
+			
+		}
 		
 	}
 	

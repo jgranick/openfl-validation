@@ -2,15 +2,16 @@
 package flash.display;
 
 
-import flash.display.PixelSnapping;
-
-
 class PixelSnappingTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (PixelSnapping.NEVER) {
+			
+			case PixelSnapping.ALWAYS, PixelSnapping.AUTO, PixelSnapping.NEVER:
+			
+		}
 		
 	}
 	

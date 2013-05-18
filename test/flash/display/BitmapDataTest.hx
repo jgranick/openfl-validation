@@ -1,9 +1,6 @@
 package flash.display;
 
 
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.display.BitmapDataChannel;
 import flash.filters.GlowFilter;
 import flash.geom.ColorTransform;
 import flash.geom.Point;

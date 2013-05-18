@@ -1,15 +1,16 @@
 package flash.display;
 
 
-import flash.display.SpreadMethod;
-
-
 class SpreadMethodTest {
 	
 	
-	@Ignore @Test public function test () {
+	@Test public function test () {
 		
-		
+		switch (SpreadMethod.REPEAT) {
+			
+			case SpreadMethod.PAD, SpreadMethod.REFLECT, SpreadMethod.REPEAT:
+			
+		}
 		
 	}
 	
