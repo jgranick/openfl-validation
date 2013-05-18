@@ -271,12 +271,12 @@ class BitmapDataTest {
 		
 		#if flash
 		
-		var bitmapData = new BitmapData (100, 100);
+		/*var bitmapData = new BitmapData (100, 100);
 		var bytes = new ByteArray ();
 		
 		bitmapData.copyPixelsToByteArray (new Rectangle (0, 0, 20, 20), bytes);
 		
-		Assert.areEqual (20 * 20 * 4, bytes.length);
+		Assert.areEqual (20 * 20 * 4, bytes.length);*/
 		
 		#end
 		
@@ -344,9 +344,177 @@ class BitmapDataTest {
 	}
 	
 	
+	@Ignore @Test public function encode () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function fillRect () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function floodFill () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function generateFilterRect () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getColorBoundsRect () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getPixel () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getPixel32 () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getPixels () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getVector () {
+		
+		
+		
+	}
+	
+	
 	private function hex (value:Int):String {
 		
 		return StringTools.hex (value, 8);
+		
+	}
+	
+	
+	@Ignore @Test public function histogram () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function hitTest () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lock () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function merge () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function noise () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function paletteMap () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function perlinNoise () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function pixelDissolve () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function scroll () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function setPixel () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function setPixel32 () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function setPixels () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function setVector () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function threshold () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function unlock () {
+		
+		
 		
 	}
 	

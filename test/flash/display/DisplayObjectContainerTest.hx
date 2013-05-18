@@ -14,7 +14,126 @@ import massive.munit.Assert;
 class DisplayObjectContainerTest {
 	
 	
-	@Test public function testChildren () {
+	@Ignore @Test public function mouseChildren () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function numChildren () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function tabChildren () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function new () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function addChild () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function addChildAt () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function areInaccessibleObjectsUnderPoint () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function contains () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getChildAt () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getChildByName () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getChildIndex () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function getObjectsUnderPoint () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function removeChild () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function removeChildAt () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function setChildIndex () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function swapChildren () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function swapChildrenAt () {
+		
+		
+		
+	}
+	
+	
+	/*@Ignore @Test public function testChildren () {
 		
 		var sprite:DisplayObjectContainer = new Sprite ();
 		
@@ -63,7 +182,7 @@ class DisplayObjectContainerTest {
 		Assert.areEqual (0, sprite.numChildren);
 		Assert.isFalse (sprite.contains (bitmap2));
 		
-	}
+	}*/
 	
 
 }

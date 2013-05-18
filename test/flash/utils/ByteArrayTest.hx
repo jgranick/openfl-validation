@@ -10,7 +10,7 @@ import massive.munit.Assert;
 class ByteArrayTest {
 
 	
-	@Test public function testWritePos () {
+	/*@Test public function testWritePos () {
 		
 		var ba:ByteArray = new ByteArray();
 		
@@ -225,7 +225,7 @@ class ByteArrayTest {
 
 		Assert.areEqual( 0xFFCC99AA, data.readInt() );
 		
-	}
+	}*/
 	
 	
 	/* Note: cannot find a test for this
@@ -253,7 +253,7 @@ class ByteArrayTest {
 	}*/
 	
 	
-	@Test public function testReadWriteShort () {
+	/*@Test public function testReadWriteShort () {
 		
 		var data = new ByteArray();
 		data.writeShort( 5 );
@@ -435,7 +435,7 @@ class ByteArrayTest {
 		Assert.areEqual(108, data.readUnsignedByte());
 		Assert.areEqual(111, data.readUnsignedByte());
 		
-	}
+	}*/
 	
 	
 }

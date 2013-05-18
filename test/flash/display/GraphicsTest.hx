@@ -12,7 +12,154 @@ import massive.munit.Assert;
 class GraphicsTest {
 	
 	
-	private function hex (value:Int):String {
+	@Ignore @Test public function new () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function beginBitmapFill () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function beginFill () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function beginGradientFill () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function clear () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function curveTo () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawCircle () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawEllipse () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawGraphicsData () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawPath () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawRect () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawRoundRect () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawRoundRectComplex () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function drawTriangles () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function endFill () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lineBitmapStyle () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lineGradientStyle () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lineShaderStyle () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lineStyle () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function lineTo () {
+		
+		
+		
+	}
+	
+	
+	@Ignore @Test public function moveTo () {
+		
+		
+		
+	}
+	
+	
+	/*private function hex (value:Int):String {
 		
 		return StringTools.hex (value, 8);
 		
@@ -144,7 +291,7 @@ class GraphicsTest {
 		Assert.areEqual (hex (0xFF0000), hex (pixel2));
 		Assert.areEqual (hex (0xFFFFFF), hex (pixel3));
 		
-	}
+	}*/
 	
 	
 }

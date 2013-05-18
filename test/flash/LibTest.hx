@@ -1,0 +1,10 @@
+package flash;
+
+
+class LibTest {
+	
+	
+	
+	
+	
+}

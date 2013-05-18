@@ -7,6 +7,7 @@
 -main TestMain
 -lib munit
 -lib hamcrest
+-lib mlib
 -lib pazu
 -D web
 
