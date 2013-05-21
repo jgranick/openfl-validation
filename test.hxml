@@ -53,9 +53,9 @@
 #-D desktop
 #-neko build/neko_test.n
 #-neko build/linux64/neko/bin/Validation.n
--cmd pazu build neko
--neko build/linux64/neko/bin/Validation.n
---no-output
+#-cmd pazu build neko
+#-neko build/linux64/neko/bin/Validation.n
+#--no-output
 
 #--next
 
