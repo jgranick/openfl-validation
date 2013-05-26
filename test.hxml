@@ -1,5 +1,5 @@
 ## C++
--cmd pazu test cpp
+-cmd openfl test cpp
 
 --next
 
@@ -8,7 +8,7 @@
 -lib munit
 -lib hamcrest
 -lib mlib
--lib pazu
+-lib openfl
 -D web
 
 -cp test
@@ -21,8 +21,8 @@
 #-main TestMain
 #-lib munit
 #-lib hamcrest
-#-lib pazu
-#-lib pazu-html5
+#-lib openfl
+#-lib openfl-html5
 #-lib format
 #-D html5
 #-D web
@@ -32,7 +32,7 @@
 #-cp test
 #-js build/js_test.js
 
--cmd pazu build html5
+-cmd openfl build html5
 
 --next
 
@@ -41,8 +41,8 @@
 #-main TestMain
 #-lib munit
 #-lib hamcrest
-#-lib pazu
-#-lib pazu-native
+#-lib openfl
+#-lib openfl-native
 #--remap flash:flash
 
 #-cp test
@@ -50,7 +50,7 @@
 #-D linux
 #-D desktop
 #-neko build/neko_test.n
--cmd pazu test neko
+-cmd openfl test neko
 
 #--next
 
@@ -58,8 +58,8 @@
 #-main TestMain
 #-lib munit
 #-lib hamcrest
-#-lib pazu
-#-lib pazu-native
+#-lib openfl
+#-lib openfl-native
 #--remap flash:flash
 
 #-cp test
@@ -68,5 +68,5 @@
 #-D desktop
 #-cpp build/cpp_test
 
-#-cmd pazu test cpp
+#-cmd openfl test cpp
 
