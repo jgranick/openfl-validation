@@ -15,7 +15,7 @@
 -swf-version 11
 -swf build/as3_test.swf
 
--cmd pazu build html5
+-cmd openfl build html5
 
 --next
 
@@ -60,7 +60,7 @@
 #-D desktop
 #-neko build/neko_test.n
 #-neko build/linux64/neko/bin/Validation.n
-#-cmd pazu build neko
+#-cmd openfl build neko
 #-neko build/linux64/neko/bin/Validation.n
 #--no-output
 -cmd openfl test neko
