@@ -4,7 +4,7 @@ package flash.display;
 class TriangleCullingTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

@@ -4,7 +4,7 @@ package flash.text;
 class FontStyleTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

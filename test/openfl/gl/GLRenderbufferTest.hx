@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class GLRenderbufferTest {
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

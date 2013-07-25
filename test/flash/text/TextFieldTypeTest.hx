@@ -4,7 +4,7 @@ package flash.text;
 class TextFieldTypeTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

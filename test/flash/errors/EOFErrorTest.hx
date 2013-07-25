@@ -4,7 +4,7 @@ package flash.errors;
 class EOFErrorTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

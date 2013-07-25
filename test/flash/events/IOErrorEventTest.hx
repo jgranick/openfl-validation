@@ -4,7 +4,7 @@ package flash.events;
 class IOErrorEventTest {
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

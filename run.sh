@@ -1,4 +1,4 @@
 #!/bin/sh
-pazu test neko
-pazu test cpp
+openfl test neko
+openfl test cpp
 haxelib run munit test

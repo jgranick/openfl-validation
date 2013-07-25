@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class ArrayBufferViewTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

@@ -4,14 +4,14 @@ package flash.events;
 class TextEventTest {
 	
 	
-	@Ignore @Test public function text () {
+	/*@Ignore @Test*/ public function text () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

@@ -4,7 +4,7 @@ package flash.net;
 class SharedObjectFlushStatusTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

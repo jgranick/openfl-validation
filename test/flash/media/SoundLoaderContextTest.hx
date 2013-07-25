@@ -4,21 +4,21 @@ package flash.media;
 class SoundLoaderContextTest {
 	
 	
-	@Ignore @Test public function bufferTime () {
+	/*@Ignore @Test*/ public function bufferTime () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function checkPolicyFile () {
+	/*@Ignore @Test*/ public function checkPolicyFile () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

@@ -4,7 +4,7 @@ package flash.events;
 class EventPhaseTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

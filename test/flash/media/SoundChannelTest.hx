@@ -4,42 +4,42 @@ package flash.media;
 class SoundChannelTest {
 	
 	
-	@Ignore @Test public function leftPeak () {
+	/*@Ignore @Test*/ public function leftPeak () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function position () {
+	/*@Ignore @Test*/ public function position () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function rightPeak () {
+	/*@Ignore @Test*/ public function rightPeak () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function soundTransform () {
+	/*@Ignore @Test*/ public function soundTransform () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function stop () {
+	/*@Ignore @Test*/ public function stop () {
 		
 		
 		

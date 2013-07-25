@@ -4,14 +4,14 @@ package flash.events;
 class ErrorEventTest {
 	
 	
-	@Ignore @Test public function errorID () {
+	/*@Ignore @Test*/ public function errorID () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

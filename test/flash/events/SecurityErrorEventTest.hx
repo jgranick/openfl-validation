@@ -4,7 +4,7 @@ package flash.events;
 class SecurityErrorEventTest {
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

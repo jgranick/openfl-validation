@@ -268,7 +268,7 @@ class BitmapDataTest {
 	}
 	
 	
-	@Ignore @Test public function copyPixelsToByteArray () {
+	/*@Ignore @Test*/ public function copyPixelsToByteArray () {
 		
 		#if flash
 		
@@ -345,63 +345,63 @@ class BitmapDataTest {
 	}
 	
 	
-	@Ignore @Test public function encode () {
+	/*@Ignore @Test*/ public function encode () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function fillRect () {
+	/*@Ignore @Test*/ public function fillRect () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function floodFill () {
+	/*@Ignore @Test*/ public function floodFill () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function generateFilterRect () {
+	/*@Ignore @Test*/ public function generateFilterRect () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getColorBoundsRect () {
+	/*@Ignore @Test*/ public function getColorBoundsRect () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getPixel () {
+	/*@Ignore @Test*/ public function getPixel () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getPixel32 () {
+	/*@Ignore @Test*/ public function getPixel32 () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getPixels () {
+	/*@Ignore @Test*/ public function getPixels () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getVector () {
+	/*@Ignore @Test*/ public function getVector () {
 		
 		
 		
@@ -415,105 +415,105 @@ class BitmapDataTest {
 	}
 	
 	
-	@Ignore @Test public function histogram () {
+	/*@Ignore @Test*/ public function histogram () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function hitTest () {
+	/*@Ignore @Test*/ public function hitTest () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function lock () {
+	/*@Ignore @Test*/ public function lock () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function merge () {
+	/*@Ignore @Test*/ public function merge () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function noise () {
+	/*@Ignore @Test*/ public function noise () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function paletteMap () {
+	/*@Ignore @Test*/ public function paletteMap () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function perlinNoise () {
+	/*@Ignore @Test*/ public function perlinNoise () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function pixelDissolve () {
+	/*@Ignore @Test*/ public function pixelDissolve () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scroll () {
+	/*@Ignore @Test*/ public function scroll () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function setPixel () {
+	/*@Ignore @Test*/ public function setPixel () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function setPixel32 () {
+	/*@Ignore @Test*/ public function setPixel32 () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function setPixels () {
+	/*@Ignore @Test*/ public function setPixels () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function setVector () {
+	/*@Ignore @Test*/ public function setVector () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function threshold () {
+	/*@Ignore @Test*/ public function threshold () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function unlock () {
+	/*@Ignore @Test*/ public function unlock () {
 		
 		
 		

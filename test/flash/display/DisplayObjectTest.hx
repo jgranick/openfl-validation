@@ -12,273 +12,273 @@ import massive.munit.Assert;
 class DisplayObjectTest {
 	
 	
-	@Ignore @Test public function accessibilityProperties () {
+	/*@Ignore @Test*/ public function accessibilityProperties () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function alpha () {
+	/*@Ignore @Test*/ public function alpha () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function blendMode () {
+	/*@Ignore @Test*/ public function blendMode () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function blendShader () {
+	/*@Ignore @Test*/ public function blendShader () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function cacheAsBitmap () {
+	/*@Ignore @Test*/ public function cacheAsBitmap () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function filters () {
+	/*@Ignore @Test*/ public function filters () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function height () {
+	/*@Ignore @Test*/ public function height () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function loaderInfo () {
+	/*@Ignore @Test*/ public function loaderInfo () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function mask () {
+	/*@Ignore @Test*/ public function mask () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function mouseX () {
+	/*@Ignore @Test*/ public function mouseX () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function mouseY () {
+	/*@Ignore @Test*/ public function mouseY () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function name () {
+	/*@Ignore @Test*/ public function name () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function opaqueBackground () {
+	/*@Ignore @Test*/ public function opaqueBackground () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function parent () {
+	/*@Ignore @Test*/ public function parent () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function root () {
+	/*@Ignore @Test*/ public function root () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function rotation () {
+	/*@Ignore @Test*/ public function rotation () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function rotationX () {
+	/*@Ignore @Test*/ public function rotationX () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function rotationY () {
+	/*@Ignore @Test*/ public function rotationY () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function rotationZ () {
+	/*@Ignore @Test*/ public function rotationZ () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scale9Grid () {
+	/*@Ignore @Test*/ public function scale9Grid () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scaleX () {
+	/*@Ignore @Test*/ public function scaleX () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scaleY () {
+	/*@Ignore @Test*/ public function scaleY () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scaleZ () {
+	/*@Ignore @Test*/ public function scaleZ () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function scrollRect () {
+	/*@Ignore @Test*/ public function scrollRect () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function stage () {
+	/*@Ignore @Test*/ public function stage () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function transform () {
+	/*@Ignore @Test*/ public function transform () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function visible () {
+	/*@Ignore @Test*/ public function visible () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function width () {
+	/*@Ignore @Test*/ public function width () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function x () {
+	/*@Ignore @Test*/ public function x () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function y () {
+	/*@Ignore @Test*/ public function y () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function z () {
+	/*@Ignore @Test*/ public function z () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getBounds () {
+	/*@Ignore @Test*/ public function getBounds () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function getRect () {
+	/*@Ignore @Test*/ public function getRect () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function globalToLocal () {
+	/*@Ignore @Test*/ public function globalToLocal () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function globalToLocal3D () {
+	/*@Ignore @Test*/ public function globalToLocal3D () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function hitTestObject () {
+	/*@Ignore @Test*/ public function hitTestObject () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function hitTestPoint () {
+	/*@Ignore @Test*/ public function hitTestPoint () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function local3DToGlobal () {
+	/*@Ignore @Test*/ public function local3DToGlobal () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function localToGlobal () {
+	/*@Ignore @Test*/ public function localToGlobal () {
 		
 		
 		

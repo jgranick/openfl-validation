@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class GLUniformLocationTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

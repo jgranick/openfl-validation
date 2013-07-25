@@ -4,7 +4,7 @@ package flash.filters;
 class BitmapFilterTypeTest {
 	
 	
-	@Ignore @Test public function test () {
+	/*@Ignore @Test*/ public function test () {
 		
 		
 		

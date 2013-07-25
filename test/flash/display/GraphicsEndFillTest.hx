@@ -8,7 +8,7 @@ import flash.display.GraphicsEndFill;
 class GraphicsEndFillTest {
 	
 	
-	@Ignore @Test public function new () {
+	/*@Ignore @Test*/ public function new () {
 		
 		
 		

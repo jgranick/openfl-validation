@@ -14,7 +14,7 @@ import massive.munit.Assert;
 class DisplayObjectContainerTest {
 	
 	
-	@Ignore @Test public function mouseChildren () {
+	/*@Ignore @Test*/ public function mouseChildren () {
 		
 		
 		
@@ -50,21 +50,21 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function tabChildren () {
+	/*@Ignore @Test*/ public function tabChildren () {
 		
 		
 		
 	}
 	
 	
-	@Ignore @Test public function textSnapshot () {
+	/*@Ignore @Test*/ public function textSnapshot () {
 		
 		
 		
 	}
 	
 	
-	/*@Ignore @Test public function new () {
+	/*@Ignore @Test*/ /*public function new () {
 		
 		
 		
@@ -132,7 +132,7 @@ class DisplayObjectContainerTest {
 	}
 	
 	
-	@Ignore @Test public function areInaccessibleObjectsUnderPoint () {
+	/*@Ignore @Test*/ public function areInaccessibleObjectsUnderPoint () {
 		
 		
 		
