@@ -12,6 +12,6 @@
 	<haxelib name="hamcrest" />
 	<haxelib name="format" />
 	
-	<template path="src/index.html" rename="index.html" if="html5" />
-	
+	<!-- <template path="src/index.html" rename="index.html" if="html5" />
+	-->
 </project>

@@ -13,12 +13,13 @@ import js.Lib;
  * Auto generated Test Application.
  * Refer to munit command line tool for more information (haxelib run munit)
  */
-class TestMain
+class TestMain extends flash.display.Sprite
 {
 	static function main(){	new TestMain(); }
 
 	public function new()
 	{
+        super();
 		var suites = new Array<Class<massive.munit.TestSuite>>();
 		suites.push(TestSuite);
 
