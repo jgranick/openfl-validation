@@ -40,7 +40,9 @@ class FocusEventTest {
 	@Test public function new_ () {
 		
 		var sprite = new Sprite ();
+		sprite.name = "Sprite";
 		var sprite2 = new Sprite ();
+		sprite2.name = "Sprite2";
 		sprite2.addChild (sprite);
 		
 		var called = false;
@@ -126,6 +128,81 @@ class FocusEventTest {
 		
 		Lib.current.stage.focus = null;
 		Assert.isTrue (called2);
+		
+		// Our checker...
+		var expect : Array<Dynamic> = [];
+		var checkEvent = function (e) {
+			var nextEvt = expect.shift();
+			Assert.isNotNull(nextEvt);
+			Assert.areSame(nextEvt.type,  e.type);
+			Assert.areSame(nextEvt.phase, e.eventPhase);
+			Assert.areSame(nextEvt.cur,   e.currentTarget);
+			Assert.areSame(nextEvt.tgt,   e.target);
+			Assert.areSame(nextEvt.rel,   e.relatedObject);
+		}
+		
+		// Build this scene graph...
+		//
+		//      /--> old1 ---> old2
+		// root-
+		//      \--> new1 ---> new2
+		//
+		// And move the focus from old2 to new2.
+		
+		// Set up the scene graph...
+		var root = new Sprite();
+		var old1 = new Sprite();
+		var old2 = new Sprite();
+		var new1 = new Sprite();
+		var new2 = new Sprite();
+		root.addChild(old1);
+		old1.addChild(old2);
+		root.addChild(new1);
+		new1.addChild(new2);
+		root.name = "root";
+		old1.name = "old1";
+		old2.name = "old2";
+		new1.name = "new1";
+		new2.name = "new2";
+		
+		// Here's our expected event sequence for this test...
+		var OUT = FocusEvent.FOCUS_OUT;
+		var  IN = FocusEvent.FOCUS_IN;
+		var CAP = EventPhase.CAPTURING_PHASE;
+		var TGT = EventPhase.AT_TARGET;
+		var BUB = EventPhase.BUBBLING_PHASE;
+		var expectedSeq = [
+			{ type: OUT, phase: CAP, cur: root, tgt: old2, rel: new2 },
+			{ type: OUT, phase: CAP, cur: old1, tgt: old2, rel: new2 },
+			{ type: OUT, phase: TGT, cur: old2, tgt: old2, rel: new2 },
+			//{ type: OUT, phase: BUB, cur: old1, tgt: old2, rel: new2 },
+			//{ type: OUT, phase: BUB, cur: root, tgt: old2, rel: new2 },
+			{ type:  IN, phase: CAP, cur: root, tgt: new2, rel: old2 },
+			{ type:  IN, phase: CAP, cur: new1, tgt: new2, rel: old2 },
+			{ type:  IN, phase: TGT, cur: new2, tgt: new2, rel: old2 },
+			//{ type:  IN, phase: BUB, cur: old1, tgt: new2, rel: old2 },
+			//{ type:  IN, phase: BUB, cur: root, tgt: new2, rel: old2 }
+		];
+		
+		// First put focus on the old...
+		Lib.current.stage.focus = old2;
+		
+		// Now register our listeners...
+		for (s in [ root, old1, old2, new1, new2 ]) {
+			s.addEventListener(FocusEvent.FOCUS_IN, checkEvent);
+			s.addEventListener(FocusEvent.FOCUS_IN, checkEvent, true);
+			s.addEventListener(FocusEvent.FOCUS_OUT, checkEvent);
+			s.addEventListener(FocusEvent.FOCUS_OUT, checkEvent, true);
+		}
+		
+		// Set up the expected sequence for the checker...
+		expect = expectedSeq;
+		
+		// Now move the focus and see if it conforms...
+		Lib.current.stage.focus = new2;
+		
+		// Ensure that all events were actually delivered...
+		Assert.areSame(0, expect.length);
 		
 	}
 	
