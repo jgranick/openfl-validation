@@ -17,7 +17,7 @@ class GLTest {
 }
 
 
-#if display
+#if (false && display)
 
 
 import flash.display.BitmapData;
