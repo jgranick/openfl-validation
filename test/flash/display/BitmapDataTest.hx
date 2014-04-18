@@ -93,7 +93,7 @@ class BitmapDataTest {
 	}
 	
 	
-	@Test public function new () {
+	@Test public function new_ () {
 		
 		var bitmapData = new BitmapData (100, 100, true, 0xFFFF0000);
 		

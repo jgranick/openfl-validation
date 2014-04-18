@@ -212,7 +212,7 @@ class RectangleTest {
 	}
 	
 	
-	@Test public function new () {
+	@Test public function new_ () {
 		
 		var rect = new Rectangle ();
 		

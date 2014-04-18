@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class EventDispatcherTest {
 	
 	
-	@Test public function new () {
+	@Test public function new_ () {
 		
 		var dispatcher = new EventDispatcher ();
 		
