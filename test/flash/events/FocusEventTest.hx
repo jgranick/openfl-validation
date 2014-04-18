@@ -46,6 +46,7 @@ class FocusEventTest {
 		sprite2.addChild (sprite);
 		
 		var called = false;
+		var called2 = false;
 		
 		var spriteListener = function (e) {
 			
@@ -59,7 +60,8 @@ class FocusEventTest {
 		
 		var sprite2Listener = function (e) {
 			
-			Assert.fail ("Should not call parent");
+			called2 = true;
+			//Assert.fail ("Should not call parent");
 			
 		}
 		
@@ -68,6 +70,7 @@ class FocusEventTest {
 		
 		Lib.current.stage.focus = sprite;
 		Assert.isTrue (called);
+		Assert.isTrue (called2);
 		
 		sprite.removeEventListener (FocusEvent.FOCUS_IN, spriteListener);
 		sprite2.removeEventListener (FocusEvent.FOCUS_IN, sprite2Listener);
@@ -159,11 +162,6 @@ class FocusEventTest {
 		old1.addChild(old2);
 		root.addChild(new1);
 		new1.addChild(new2);
-		root.name = "root";
-		old1.name = "old1";
-		old2.name = "old2";
-		new1.name = "new1";
-		new2.name = "new2";
 		
 		// Here's our expected event sequence for this test...
 		var OUT = FocusEvent.FOCUS_OUT;
@@ -175,13 +173,13 @@ class FocusEventTest {
 			{ type: OUT, phase: CAP, cur: root, tgt: old2, rel: new2 },
 			{ type: OUT, phase: CAP, cur: old1, tgt: old2, rel: new2 },
 			{ type: OUT, phase: TGT, cur: old2, tgt: old2, rel: new2 },
-			//{ type: OUT, phase: BUB, cur: old1, tgt: old2, rel: new2 },
-			//{ type: OUT, phase: BUB, cur: root, tgt: old2, rel: new2 },
+			{ type: OUT, phase: BUB, cur: old1, tgt: old2, rel: new2 },
+			{ type: OUT, phase: BUB, cur: root, tgt: old2, rel: new2 },
 			{ type:  IN, phase: CAP, cur: root, tgt: new2, rel: old2 },
 			{ type:  IN, phase: CAP, cur: new1, tgt: new2, rel: old2 },
 			{ type:  IN, phase: TGT, cur: new2, tgt: new2, rel: old2 },
-			//{ type:  IN, phase: BUB, cur: old1, tgt: new2, rel: old2 },
-			//{ type:  IN, phase: BUB, cur: root, tgt: new2, rel: old2 }
+			{ type:  IN, phase: BUB, cur: new1, tgt: new2, rel: old2 },
+			{ type:  IN, phase: BUB, cur: root, tgt: new2, rel: old2 }
 		];
 		
 		// First put focus on the old...
