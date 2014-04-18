@@ -41,7 +41,7 @@ class FocusEventTest {
 		
 		var sprite = new Sprite ();
 		var sprite2 = new Sprite ();
-		sprite.addChild (sprite2);
+		sprite2.addChild (sprite);
 		
 		var called = false;
 		
@@ -57,7 +57,7 @@ class FocusEventTest {
 		
 		var sprite2Listener = function (e) {
 			
-			Assert.fail ("Should not call child");
+			Assert.fail ("Should not call parent");
 			
 		}
 		
