@@ -137,7 +137,6 @@ import flash.net.URLVariablesTest;
 import flash.net.URLLoaderDataFormatTest;
 import flash.net.SharedObjectTest;
 import flash.external.ExternalInterfaceTest;
-import ExampleTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -288,6 +287,5 @@ class TestSuite extends massive.munit.TestSuite
 		add(flash.net.URLLoaderDataFormatTest);
 		add(flash.net.SharedObjectTest);
 		add(flash.external.ExternalInterfaceTest);
-		add(ExampleTest);
 	}
 }
