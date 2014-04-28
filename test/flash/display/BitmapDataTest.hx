@@ -297,11 +297,6 @@ class BitmapDataTest {
 			Assert.isTrue (true);
 		}
 		
-		#elseif neko
-		
-		Assert.areEqual (null, bitmapData.width);
-		Assert.areEqual (null, bitmapData.height);
-		
 		#else
 		
 		Assert.areEqual (0, bitmapData.width);
