@@ -45,10 +45,13 @@ class FocusEventTest {
 		sprite2.name = "Sprite2";
 		sprite2.addChild (sprite);
 		
+		// Native currently requires objects to be on stage
+		Lib.current.stage.addChild (sprite2);
+		
 		var called = false;
 		var called2 = false;
 		
-		var spriteListener = function (e) {
+		var spriteListener = function (e:FocusEvent) {
 			
 			Assert.areSame (sprite, e.target);
 			Assert.areSame (sprite, e.currentTarget);
@@ -58,7 +61,7 @@ class FocusEventTest {
 			
 		}
 		
-		var sprite2Listener = function (e) {
+		var sprite2Listener = function (e:FocusEvent) {
 			
 			called2 = true;
 			//Assert.fail ("Should not call parent");
@@ -110,13 +113,13 @@ class FocusEventTest {
 		sprite2.removeEventListener (FocusEvent.FOCUS_IN, sprite2Listener);
 		called2 = false;
 		
-		spriteListener = function (e) {
+		spriteListener = function (e:FocusEvent) {
 			
 			Assert.fail ("Should not be called");
 			
 		}
 		
-		sprite2Listener = function (e) {
+		sprite2Listener = function (e:FocusEvent) {
 			
 			called2 = true;
 			
@@ -132,9 +135,11 @@ class FocusEventTest {
 		Lib.current.stage.focus = null;
 		Assert.isTrue (called2);
 		
+		Lib.current.stage.removeChild (sprite2);
+		
 		// Our checker...
 		var expect : Array<Dynamic> = [];
-		var checkEvent = function (e) {
+		var checkEvent = function (e:FocusEvent) {
 			var nextEvt = expect.shift();
 			Assert.isNotNull(nextEvt);
 			Assert.areSame(nextEvt.type,  e.type);
@@ -162,6 +167,9 @@ class FocusEventTest {
 		old1.addChild(old2);
 		root.addChild(new1);
 		new1.addChild(new2);
+		
+		// Native currently requires objects to be on stage
+		Lib.current.stage.addChild (root);
 		
 		// Here's our expected event sequence for this test...
 		var OUT = FocusEvent.FOCUS_OUT;
@@ -201,6 +209,8 @@ class FocusEventTest {
 		
 		// Ensure that all events were actually delivered...
 		Assert.areSame(0, expect.length);
+		
+		Lib.current.stage.removeChild (root);
 		
 	}
 	
