@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class GLTest {
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

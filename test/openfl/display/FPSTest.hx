@@ -7,7 +7,7 @@ import massive.munit.Assert;
 class FPSTest {
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

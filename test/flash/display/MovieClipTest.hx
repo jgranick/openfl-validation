@@ -78,7 +78,7 @@ class MovieClipTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

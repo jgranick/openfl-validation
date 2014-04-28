@@ -46,7 +46,7 @@ class Vector3DTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

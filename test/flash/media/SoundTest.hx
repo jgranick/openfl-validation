@@ -53,7 +53,7 @@ class SoundTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

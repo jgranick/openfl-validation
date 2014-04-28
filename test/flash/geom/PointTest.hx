@@ -45,7 +45,7 @@ class PointTest {
 	}
 	
 	
-	/*@Test public function new () {
+	/*@Test public function new_ () {
 		
 		
 		

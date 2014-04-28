@@ -4,7 +4,7 @@ package flash.net;
 class URLVariablesTest {
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

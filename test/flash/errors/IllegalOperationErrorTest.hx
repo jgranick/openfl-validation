@@ -4,7 +4,7 @@ package flash.errors;
 class IllegalOperationErrorTest {
 	
 	
-	/*@Ignore @Test*/ public function new () {
+	/*@Ignore @Test*/ public function new_ () {
 		
 		
 		

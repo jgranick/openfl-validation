@@ -1,6 +1,7 @@
 package flash.events;
 
 
+import flash.display.Sprite;
 import massive.munit.Assert;
 
 
@@ -127,6 +128,44 @@ class EventDispatcherTest {
 		dispatcher.addEventListener ("event", listener, false, 20);
 		dispatcher.dispatchEvent (new Event ("event"));
 		
+		Assert.isTrue (correctOrder);
+		
+		// Bubbling
+		
+		var sprite = new Sprite ();
+		var sprite2 = new Sprite ();
+		
+		var spriteEvent = false;
+		var sprite2Event = false;
+		
+		var listener = function (_) {
+			
+			spriteEvent = true;
+			correctOrder = true;
+			
+		}
+		
+		var listener2 = function (_) {
+			
+			sprite2Event = true;
+			correctOrder = false;
+			
+		}
+		
+		sprite.addEventListener ("event", listener);
+		sprite2.addEventListener ("event", listener2);
+		sprite.addChild (sprite2);
+		sprite2.dispatchEvent (new Event ("event"));
+		
+		Assert.isFalse (spriteEvent);
+		Assert.isTrue (sprite2Event);
+		
+		sprite2Event = false;
+		
+		sprite2.dispatchEvent (new Event ("event", true));
+		
+		Assert.isTrue (spriteEvent);
+		Assert.isTrue (sprite2Event);
 		Assert.isTrue (correctOrder);
 		
 	}
