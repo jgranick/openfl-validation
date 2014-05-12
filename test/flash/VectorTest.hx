@@ -376,6 +376,32 @@ class VectorTest {
 		Assert.areEqual (2, vector.indexOf (2));
 		
 	}
+
+
+	@Test public function iterator () {
+		
+		var vector = new Vector<Int> (10);
+
+		for (i in 0...10) {
+			
+			vector[i] = i;
+
+		}
+
+		vector.push (10);
+
+		var iterations = 0;
+
+		for (i in vector) {
+			
+			Assert.areEqual (iterations, vector[iterations]);
+			iterations++;
+
+		}
+
+		Assert.areEqual (11, iterations);
+
+	}
 	
 	
 	@Test public function lastIndexOf () {
