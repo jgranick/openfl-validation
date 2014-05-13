@@ -17,7 +17,7 @@ class VectorTest {
 		vector.length = 2;
 		
 		Assert.areEqual (2, vector.length);
-		#if (js || neko)
+		#if !flash
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -26,7 +26,7 @@ class VectorTest {
 		var vector = new Vector<Float> ();
 		vector.length = 2;
 		
-		#if (js || neko)
+		#if !flash
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -35,7 +35,7 @@ class VectorTest {
 		var vector = new Vector<Bool> ();
 		vector.length = 2;
 		
-		#if (js || neko)
+		#if !flash
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (false, vector[0]);
@@ -91,7 +91,7 @@ class VectorTest {
 		} catch (e:Dynamic) {}
 
 		Assert.areEqual (10, vector.length);
-		#if (js || neko)
+		#if !flash
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -111,7 +111,7 @@ class VectorTest {
 		vector.shift ();
 		
 		Assert.areEqual (9, vector.length);
-		#if (js || neko)
+		#if !flash
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
