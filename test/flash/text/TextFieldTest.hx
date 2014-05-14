@@ -15,9 +15,24 @@ class TextFieldTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function autoSize () {
+	@Test public function autoSize () {
 		
+		var textField = new TextField ();
+		textField.text = "Hello";
 		
+		Assert.areNotEqual (textField.textWidth + 4, textField.width);
+		
+		textField.autoSize = TextFieldAutoSize.LEFT;
+		
+		Assert.areEqual (textField.textWidth + 4, textField.width);
+		
+		textField.text = "H";
+		
+		Assert.areEqual (textField.textWidth + 4, textField.width);
+		
+		textField.text = "Hello World";
+		
+		Assert.areEqual (textField.textWidth + 4, textField.width);
 		
 	}
 	
@@ -108,9 +123,20 @@ class TextFieldTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function bottomScrollV () {
+	@Test public function bottomScrollV () {
 		
+		var textField = new TextField ();
+		textField.text = "Hello";
 		
+		Assert.areEqual (1, textField.bottomScrollV);
+		
+		textField.text = "Hello\nWorld";
+		
+		Assert.areEqual (2, textField.bottomScrollV);
+		
+		textField.text = "";
+		
+		Assert.areEqual (1, textField.bottomScrollV);
 		
 	}
 	
@@ -206,9 +232,20 @@ class TextFieldTest {
 	}
 	
 	
-	/*@Ignore @Test*/ public function numLines () {
+	@Test public function numLines () {
 		
+		var textField = new TextField ();
+		textField.text = "Hello";
 		
+		Assert.areEqual (1, textField.numLines);
+		
+		textField.text = "Hello\nWorld";
+		
+		Assert.areEqual (2, textField.numLines);
+		
+		textField.text = "";
+		
+		Assert.areEqual (1, textField.numLines);
 		
 	}
 	
