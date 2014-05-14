@@ -17,7 +17,7 @@ class VectorTest {
 		vector.length = 2;
 		
 		Assert.areEqual (2, vector.length);
-		#if !flash
+		#if (js || neko)
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -26,7 +26,7 @@ class VectorTest {
 		var vector = new Vector<Float> ();
 		vector.length = 2;
 		
-		#if !flash
+		#if (js || neko)
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -35,7 +35,7 @@ class VectorTest {
 		var vector = new Vector<Bool> ();
 		vector.length = 2;
 		
-		#if !flash
+		#if (js || neko)
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (false, vector[0]);
@@ -64,11 +64,11 @@ class VectorTest {
 		
 		var vector = new Vector<Int> (0, true);
 
+		#if !cpp // for performance, C++ does not match here
 		try {
-			
 			vector.length = 10;
-
 		} catch (e:Dynamic) {}
+		#end
 
 		Assert.areEqual (0, vector.length);
 		vector.fixed = false;
@@ -76,22 +76,22 @@ class VectorTest {
 		Assert.areEqual (10, vector.length);
 		vector.fixed = true;
 
+		#if !cpp // for performance, C++ does not match here
 		try {
-			
 			vector.push (1);
-
 		} catch (e:Dynamic) {}
+		#end
 
 		Assert.areEqual (10, vector.length);
 
+		#if !cpp // for performance, C++ does not match here
 		try {
-			
 			vector.unshift (100);
-
 		} catch (e:Dynamic) {}
+		#end
 
 		Assert.areEqual (10, vector.length);
-		#if !flash
+		#if (js || neko)
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -111,7 +111,7 @@ class VectorTest {
 		vector.shift ();
 		
 		Assert.areEqual (9, vector.length);
-		#if !flash
+		#if (js || neko)
 		Assert.areEqual (null, vector[0]);
 		#else
 		Assert.areEqual (0, vector[0]);
@@ -138,14 +138,13 @@ class VectorTest {
 		
 		Assert.areEqual (0, vector.length);
 		Assert.isFalse (vector.fixed);
-		
-		#if !js
-		
+
 		var vector = new Vector<Int> (10, true);
-		
+
 		Assert.areEqual (10, vector.length);
+
+		#if !cpp // for performance, C++ does not match here
 		Assert.isTrue (vector.fixed);
-		
 		#end
 		
 	}
